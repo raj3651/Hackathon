@@ -1,0 +1,25 @@
+// ========== TM Bootstrap theme overrides ==============
+$theme-colors: (
+  "tm": #000F2B,
+  "primary": #007697,
+  "warning": #C0540F,
+  "success": #216C2B
+);
+
+$font-size-base: 0.8125rem !default;
+
+// ========== TM Bootstrap theme overrides ==============
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+
+}
+
+.app-content {
+  margin-top: 10px;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+

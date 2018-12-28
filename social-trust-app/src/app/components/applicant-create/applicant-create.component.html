@@ -1,0 +1,33 @@
+<div class="container-fluid app-content">
+  <form [formGroup]="newApplicantForm">
+    <div class="form-group row">
+      <label for="inputFirstName" class="col-sm-3 col-form-label">First Name</label>
+      <div class="col-sm-9">
+        <input class="form-control form-control-sm" id="inputFirstName"  formControlName="firstNameControl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputLastName" class="col-sm-3 col-form-label">Last Name</label>
+      <div class="col-sm-9">
+        <input class="form-control form-control-sm" id="inputLastName" formControlName="lastNameControl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputAge" class="col-sm-3 col-form-label">Age</label>
+      <div class="col-sm-9">
+        <input class="form-control form-control-sm" id="inputAge" formControlName="ageControl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputTwitterHandle" class="col-sm-3 col-form-label">Twitter Handle</label>
+      <div class="col-sm-9">
+        <input class="form-control form-control-sm" id="inputTwitterHandle" formControlName="twitterHandleControl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12 text-right">
+        <button type="submit" class="btn btn-success" (click)="createNewApplicant()"> Create Applicant</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+server:
+  port: 8095
+
+eureka:
+  client:
+    enabled: false
+
+#Basic Spring Boot Config for Oracle
+spring:
+  profiles:
+    active: development
+  application:
+    name: social-trust
+  datasource:
+    url: jdbc:h2:file:./social-trust;AUTO_SERVER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    continueOnError: true
+    initialization-mode: always
+
+logging:
+  file: C:/log/${spring.application.name}-app.log
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: TRACE
+
+twitter:
+  consumerKey:
+  consumerSecret:
+
+message: Hello development
