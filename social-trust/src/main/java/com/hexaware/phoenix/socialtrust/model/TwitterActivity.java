@@ -1,5 +1,7 @@
 package com.hexaware.phoenix.socialtrust.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -12,8 +14,9 @@ public class TwitterActivity {
     @Column(name = "ACTIVITY_ID")
     private Long activityId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "APPLICANT_ID")
+    @JsonIgnore
     private Applicant applicant;
 
     @Column(name = "ACTIVITY")

@@ -1,5 +1,9 @@
 package com.hexaware.phoenix.socialtrust.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,65 +13,41 @@ public class Applicant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "APPLICANT_ID")
-    private Long applicantId;
+    private @Getter @Setter Long applicantId;
 
     @Column(name = "FIRST_NAME")
-    private String firstName;
+    private @Getter @Setter String firstName;
 
     @Column(name = "LAST_NAME")
-    private String lastName;
+    private @Getter @Setter String lastName;
 
     @Column(name = "AGE")
-    private String age;
+    private @Getter @Setter String age;
+
+    @Column(name = "NUM_OF_DEVICES")
+    private @Getter @Setter Long numOfDevices;
+
+    @Column(name = "NUM_OF_LOCKOUTS")
+    private @Getter @Setter Long numOfLockouts;
+
+    @Column(name = "NUM_OF_FAIL_LOGINS")
+    private @Getter @Setter Long numOfFailLogins;
+
+    @Column(name = "NUM_OF_MFA_AUTHS")
+    private @Getter @Setter Long numOfMFAAuths;
+
+    @Column(name = "ACCT_AGE")
+    private @Getter @Setter Double acctAge;
 
     @Column(name = "TWITTER_HANDLE")
-    private String twitterHandle;
-
-    @OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<TwitterActivity> twitterActivities;
+    private @Getter @Setter String twitterHandle;
 
     @Column(name = "APPLICANT_TRUST_SCORE")
-    private Long applicantTrustScore;
+    private @Getter @Setter Double applicantTrustScore;
 
-    public Long getApplicantId() {
-        return applicantId;
-    }
-
-    public void setApplicantId(Long applicantId) {
-        this.applicantId = applicantId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getTwitterHandle() {
-        return twitterHandle;
-    }
-
-    public void setTwitterHandle(String twitterHandle) {
-        this.twitterHandle = twitterHandle;
-    }
+    @OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<TwitterActivity> twitterActivities;
 
     public Set<TwitterActivity> getTwitterActivities() {
         return twitterActivities;
@@ -76,12 +56,4 @@ public class Applicant {
     public void setTwitterActivities(Set<TwitterActivity> twitterActivities) {
         this.twitterActivities = twitterActivities;
     }
-
-    public Long getApplicantTrustScore() {
-        return applicantTrustScore;
-    }
-
-    public void setApplicantTrustScore(Long applicantTrustScore) {
-        this.applicantTrustScore = applicantTrustScore;
-    }
-}
+  }

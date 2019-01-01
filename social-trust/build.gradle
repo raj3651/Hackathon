@@ -30,6 +30,10 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-web')
 	implementation('com.h2database:h2')
 	implementation('org.springframework.social:spring-social-twitter:1.1.2.RELEASE')
-	compileOnly('org.projectlombok:lombok')
+	implementation('org.springframework.social:spring-social-facebook:2.0.3.RELEASE')
+	implementation('org.springframework.social:spring-social-linkedin:1.0.2.RELEASE')
+	implementation('org.projectlombok:lombok:1.18.4')
+	implementation('com.monkeylearn:monkeylearn-java:0.1.5')
+	implementation('com.amazonaws:aws-java-sdk:1.11.475')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 }

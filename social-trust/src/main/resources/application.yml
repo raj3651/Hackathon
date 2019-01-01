@@ -26,7 +26,17 @@ logging:
     org.hibernate: TRACE
 
 twitter:
-  consumerKey:
-  consumerSecret:
+  consumerKey: 
+  consumerSecret: 
+  accessToken: 
+  accessTokenSecret: 
+
+monkeyLearn:
+  token: 
+  modelId: 
+
+amazon:
+  modelId: ml-La6d0JzspXZ
+
 
 message: Hello development

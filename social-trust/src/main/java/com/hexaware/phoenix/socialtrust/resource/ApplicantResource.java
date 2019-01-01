@@ -1,15 +1,11 @@
 package com.hexaware.phoenix.socialtrust.resource;
 
-import com.hexaware.phoenix.socialtrust.constant.SocialProfileType;
 import com.hexaware.phoenix.socialtrust.dto.ApplicantsDto;
 import com.hexaware.phoenix.socialtrust.dto.SocialProfile;
 import com.hexaware.phoenix.socialtrust.model.Applicant;
 import com.hexaware.phoenix.socialtrust.service.ApplicantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.Request;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:8086"})

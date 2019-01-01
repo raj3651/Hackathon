@@ -9,6 +9,6 @@ public interface SocialActivityService<T> {
     List<T> fetchSocialActivityFromSocialService(String SocialId);
     List<T> saveSocialActivity(List<T> activities);
     List<T> retrieveSocialActivity(Long applicantId);
-    boolean isFavorableActivity(T activity);
+    Boolean isFavorableActivity(T activity);
 
 }

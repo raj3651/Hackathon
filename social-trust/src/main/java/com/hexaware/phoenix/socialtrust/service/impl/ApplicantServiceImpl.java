@@ -35,17 +35,14 @@ public class ApplicantServiceImpl implements ApplicantService {
     @Override
     public Applicant createApplicant(Applicant applicant) {
 
-        applicant.setApplicantTrustScore(-1L);
+        applicant.setApplicantTrustScore(new Double(-1L));
         applicantRepository.save(applicant);
-
         return applicant;
     }
 
     @Override
     public Applicant retrieveApplicant(Long applicantId) {
-
         Applicant applicant = applicantRepository.findById(applicantId).orElse(null);
-
         return applicant;
     }
 
@@ -74,12 +71,13 @@ public class ApplicantServiceImpl implements ApplicantService {
         while (iterator.hasNext()) {
             TwitterActivity twitterActivity = iterator.next();
             twitterActivity.setApplicant(applicant);
-            twitterActivity.setFavorable(twitterActivityService.isFavorableActivity(twitterActivity.getActivity()));
+            Boolean favorable = twitterActivityService.isFavorableActivity(twitterActivity);
+            twitterActivity.setFavorable(favorable);
         }
 
         twitterActivityService.saveSocialActivity(twitterActivities);
 
-        applicant.setApplicantTrustScore(machineLearningService.generateScore());
+        applicant.setApplicantTrustScore(machineLearningService.generateScore(applicant));
 
         applicantRepository.save(applicant);
 
