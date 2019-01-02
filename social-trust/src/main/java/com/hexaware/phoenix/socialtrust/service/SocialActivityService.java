@@ -10,5 +10,6 @@ public interface SocialActivityService<T> {
     List<T> saveSocialActivity(List<T> activities);
     List<T> retrieveSocialActivity(Long applicantId);
     Boolean isFavorableActivity(T activity);
+    Double getActivivitySentiment(Long applicantId, boolean sentiment);
 
 }

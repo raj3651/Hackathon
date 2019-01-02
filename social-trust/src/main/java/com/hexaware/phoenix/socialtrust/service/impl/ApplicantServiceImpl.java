@@ -36,6 +36,13 @@ public class ApplicantServiceImpl implements ApplicantService {
     public Applicant createApplicant(Applicant applicant) {
 
         applicant.setApplicantTrustScore(new Double(-1L));
+        applicant.setNumOfMFAAuths(new Long(2));
+        applicant.setNumOfFailLogins(new Long(2));
+        applicant.setNumOfDevices(new Long(2));
+        applicant.setNumOfLockouts(new Long(3));
+        applicant.setAcctAge(new Double(0.6));
+        applicant.setFavorableCount(new Double(0));
+        applicant.setUnFavorableCount(new Double(0));
         applicantRepository.save(applicant);
         return applicant;
     }
@@ -76,6 +83,9 @@ public class ApplicantServiceImpl implements ApplicantService {
         }
 
         twitterActivityService.saveSocialActivity(twitterActivities);
+
+        applicant.setFavorableCount(twitterActivityService.getActivivitySentiment(applicantId, true));
+        applicant.setUnFavorableCount(twitterActivityService.getActivivitySentiment(applicantId, false));
 
         applicant.setApplicantTrustScore(machineLearningService.generateScore(applicant));
 

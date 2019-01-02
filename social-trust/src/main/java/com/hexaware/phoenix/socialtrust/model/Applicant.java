@@ -24,19 +24,19 @@ public class Applicant {
     @Column(name = "AGE")
     private @Getter @Setter String age;
 
-    @Column(name = "NUM_OF_DEVICES")
+    @Column(name = "NUM_OF_DEVICES", columnDefinition = "long default 2")
     private @Getter @Setter Long numOfDevices;
 
-    @Column(name = "NUM_OF_LOCKOUTS")
+    @Column(name = "NUM_OF_LOCKOUTS", columnDefinition = "long default 1")
     private @Getter @Setter Long numOfLockouts;
 
-    @Column(name = "NUM_OF_FAIL_LOGINS")
+    @Column(name = "NUM_OF_FAIL_LOGINS", columnDefinition = "long default 2")
     private @Getter @Setter Long numOfFailLogins;
 
-    @Column(name = "NUM_OF_MFA_AUTHS")
+    @Column(name = "NUM_OF_MFA_AUTHS", columnDefinition = "long default 2")
     private @Getter @Setter Long numOfMFAAuths;
 
-    @Column(name = "ACCT_AGE")
+    @Column(name = "ACCT_AGE", columnDefinition = "double default 0.5")
     private @Getter @Setter Double acctAge;
 
     @Column(name = "TWITTER_HANDLE")
@@ -44,6 +44,12 @@ public class Applicant {
 
     @Column(name = "APPLICANT_TRUST_SCORE")
     private @Getter @Setter Double applicantTrustScore;
+
+    @Column(name = "FAVORABLE_COUNT")
+    private @Getter @Setter Double favorableCount;
+
+    @Column(name = "UNFAVORABLE_COUNT")
+    private @Getter @Setter Double unFavorableCount;
 
     @OneToMany(mappedBy = "applicant", cascade = CascadeType.ALL)
     @JsonIgnore

@@ -75,4 +75,13 @@ public class TwitterActivityServiceImpl implements SocialActivityService<Twitter
         return machineLearningService.performSentimentAnalysis(activity.getActivity());
     }
 
+    @Override
+    public Double getActivivitySentiment(Long applicantId, boolean sentiment) {
+        Applicant applicant = applicantRepository.findById(applicantId).orElse(null);
+        if(applicant != null) {
+            return new Double(twitterActivityRepository.countAllByApplicantAndFavorable(applicant, sentiment));
+        }
+        return 0.0;
+    }
+
 }

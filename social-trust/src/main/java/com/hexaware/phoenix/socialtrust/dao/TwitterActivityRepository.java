@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface TwitterActivityRepository extends JpaRepository<TwitterActivity, Long> {
     public List<TwitterActivity> findAllByApplicant(Applicant applicant);
+    public int countAllByApplicantAndFavorable(Applicant applicant, boolean favorable);
 }
