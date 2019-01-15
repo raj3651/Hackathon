@@ -38,12 +38,19 @@
           <td>{{applicant.age}}</td>
           <td>{{applicant.twitterHandle}}</td>
           <td>
-            <span *ngIf="applicant.applicantTrustScore >= 0">{{applicant.applicantTrustScore}}</span>
-            <span *ngIf="applicant.applicantTrustScore < 0"><button class="btn btn-sm btn-success" (click)="generateTrustScore(applicant)">Generate Score</button></span>
+            <span *ngIf="applicant.applicantTrustScore < 0"><button class="btn btn-sm btn-secondary" (click)="generateTrustScore(applicant)">Generate Score</button></span>
+            <span class="score-red" *ngIf="applicant.applicantTrustScore >= 0 && applicant.applicantTrustScore < 6">{{applicant.applicantTrustScore}}</span>
+            <span class="score-yellow" *ngIf="applicant.applicantTrustScore >= 6 && applicant.applicantTrustScore < 8">{{applicant.applicantTrustScore}}</span>
+            <span class="score-blue" *ngIf="applicant.applicantTrustScore >= 8 && applicant.applicantTrustScore < 9">{{applicant.applicantTrustScore}}</span>
+            <span class="score-green" *ngIf="applicant.applicantTrustScore >= 9">{{applicant.applicantTrustScore}}</span>
           </td>
         </tr>
         </tbody>
       </table>
+      <div class="text-center">
+        <span class="score-red">High Risk >=0 && < 6</span>&nbsp;<span class="score-yellow">Moderate Risk >=0 && < 6</span>&nbsp;<span class="score-blue">Low Risk >=0 && < 6</span>&nbsp;<span class="score-green">No Risk >=0 && < 6</span>
+      </div>
     </div>
   </div>
 </div>
+
